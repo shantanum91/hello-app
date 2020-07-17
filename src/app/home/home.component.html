@@ -1,0 +1,18 @@
+<div *ngIf="isAdmin">
+    You are logged in as an Admin!
+</div>
+
+My Skills:
+<span *ngFor="let skill of skills">{{skill}} </span>
+
+<div [ngStyle]="{'padding': padVal}">
+    <div [ngClass]="{'highlighted':highlight}">Address:</div>
+    Pune, Maharashtra
+</div>
+
+Leave a message:
+<input type="text" name="leaveMsg" [(ngModel)]="msg">
+
+<br>
+<br>
+Message Preview: {{msg}}
