@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,16 @@ export class HomeComponent implements OnInit {
 
   highlight = true;
   padVal = '20px';
-  constructor() { }
+
+  currentTime = '';
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('https://jsonplaceholder.typicode.com/todos/1').subscribe((res: any) => {
+      console.log(res);
+      this.currentTime = res.title;
+    });
   }
 
 }
