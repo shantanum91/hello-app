@@ -15,14 +15,14 @@ export class HomeComponent implements OnInit {
   highlight = true;
   padVal = '20px';
 
-  currentTime = '';
+  serverText = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get('https://jsonplaceholder.typicode.com/todos/1').subscribe((res: any) => {
       console.log(res);
-      this.currentTime = res.title;
+      this.serverText = res.title;
     });
   }
 
